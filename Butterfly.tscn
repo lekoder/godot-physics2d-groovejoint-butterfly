@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="Node" type="Node" index="0"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+applied_torque = 5000.0
+_sections_unfolded = [ "Angular", "Applied Forces" ]
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="RigidBody2D" index="0"]
+
+rotation = 3.14159
+z_index = 8
+node_a = NodePath("..")
+node_b = NodePath("../RigidBody2D2")
+bias = 0.0
+disable_collision = true
+length = 75.0
+initial_offset = 50.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="GrooveJoint2D2" type="GrooveJoint2D" parent="RigidBody2D" index="1"]
+
+position = Vector2( 0, -20 )
+rotation = 3.14159
+z_index = 8
+node_a = NodePath("..")
+node_b = NodePath("../RigidBody2D2")
+bias = 0.0
+disable_collision = true
+length = 100.0
+initial_offset = 75.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D" index="2"]
+
+self_modulate = Color( 0, 1, 0, 1 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D" index="4"]
+
+visible = false
+anchor_mode = 1
+rotating = true
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="RigidBody2D" index="5"]
+
+position = Vector2( 1.29869, -89.7345 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Applied Forces" ]
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D/RigidBody2D2" index="0"]
+
+self_modulate = Color( 1, 0, 1, 1 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D/RigidBody2D2" index="1"]
+
+position = Vector2( -1.29869, -0.265503 )
+build_mode = 0
+polygon = PoolVector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+modulate = Color( 1, 1, 1, 0.25098 )
+scale = Vector2( 10, 10 )
+z_index = -1
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+
